@@ -1,0 +1,83 @@
+
+plugin.tx_management_customer {
+    view {
+        templateRootPaths.0 = EXT:management/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_management_customer.view.templateRootPath}
+        partialRootPaths.0 = EXT:management/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_management_customer.view.partialRootPath}
+        layoutRootPaths.0 = EXT:management/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_management_customer.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_management_customer.persistence.storagePid}
+        usergroup = 1
+        recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+    settings {
+        storagePid = {$plugin.tx_management_customer.persistence.storagePid}
+        usergroup = 1
+        defaultpwd = nirmalya143
+    }
+}
+
+plugin.tx_management_product {
+    view {
+        templateRootPaths.0 = EXT:management/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_management_product.view.templateRootPath}
+        partialRootPaths.0 = EXT:management/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_management_product.view.partialRootPath}
+        layoutRootPaths.0 = EXT:management/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_management_product.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_management_product.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+plugin.tx_management_ticket {
+    view {
+        templateRootPaths.0 = EXT:management/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_management_ticket.view.templateRootPath}
+        partialRootPaths.0 = EXT:management/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_management_ticket.view.partialRootPath}
+        layoutRootPaths.0 = EXT:management/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_management_ticket.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_management_ticket.persistence.storagePid}
+        recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:management/Configuration/TypoScript/TsLib/settings.persistence.txt">

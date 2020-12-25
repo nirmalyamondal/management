@@ -1,0 +1,92 @@
+# ==============================================
+# Persistence object mapping configuration
+# ==============================================
+
+config.tx_extbase.persistence {
+	enableAutomaticCacheClearing = 1
+	updateReferenceIndex = 0
+	classes {		
+		AshokaTree\Management\Domain\Model\Brand {
+			mapping {
+				tableName = tx_management_domain_model_brand
+				columns {
+					name.mapOnProperty = name
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Category {
+			mapping {
+				tableName = tx_management_domain_model_category
+				columns {
+					name.mapOnProperty = name
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Customer {
+			mapping {
+				tableName = fe_users
+				columns {
+					name.mapOnProperty = name
+					address.mapOnProperty = address
+					email.mapOnProperty = email
+					zip.mapOnProperty = zip
+					image.mapOnProperty = image
+					telephone.mapOnProperty = telephone		
+					username.mapOnProperty = username
+					usergroup.mapOnProperty = usergroup	
+					password.mapOnProperty = password	
+					crdate.mapOnProperty = crdate
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Technician {
+			mapping {
+				tableName = fe_users
+				columns {
+					name.mapOnProperty = name
+					address.mapOnProperty = address
+					email.mapOnProperty = email
+					zip.mapOnProperty = zip
+					image.mapOnProperty = image
+					telephone.mapOnProperty = telephone		
+					username.mapOnProperty = username			
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Message {
+			mapping {
+				tableName = tx_management_domain_model_message
+				columns {
+					ticket.mapOnProperty = ticket
+					user.mapOnProperty = user
+					message.mapOnProperty = message
+					date.mapOnProperty = date
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Priority {
+			mapping {
+				tableName = tx_management_domain_model_priority
+				columns {
+					name.mapOnProperty = name
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Status {
+			mapping {
+				tableName = tx_management_domain_model_status
+				columns {
+					name.mapOnProperty = name
+				}			
+			}
+		}
+		AshokaTree\Management\Domain\Model\Type {
+			mapping {
+				tableName = tx_management_domain_model_type
+				columns {
+					name.mapOnProperty = name
+				}			
+			}
+		}
+	}	
+}

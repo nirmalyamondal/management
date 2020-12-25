@@ -1,0 +1,45 @@
+
+plugin.tx_management_customer {
+    view {
+        # cat=plugin.tx_management_customer/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:management/Resources/Private/Templates/
+        # cat=plugin.tx_management_customer/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:management/Resources/Private/Partials/
+        # cat=plugin.tx_management_customer/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:management/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_management_customer//a; type=string; label=Default storage PID
+        storagePid = 2
+    }
+}
+
+plugin.tx_management_product {
+    view {
+        # cat=plugin.tx_management_product/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:management/Resources/Private/Templates/
+        # cat=plugin.tx_management_product/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:management/Resources/Private/Partials/
+        # cat=plugin.tx_management_product/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:management/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_management_product//a; type=string; label=Default storage PID
+        storagePid = 24
+    }
+}
+
+plugin.tx_management_ticket {
+    view {
+        # cat=plugin.tx_management_ticket/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:management/Resources/Private/Templates/
+        # cat=plugin.tx_management_ticket/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:management/Resources/Private/Partials/
+        # cat=plugin.tx_management_ticket/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:management/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_management_ticket//a; type=string; label=Default storage PID
+        storagePid = 23
+    }
+}

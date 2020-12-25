@@ -1,0 +1,28 @@
+{
+    "name": "ashokatree/management",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nirmalya Mondal",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "AshokaTree\\Management\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AshokaTree\\Management\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "ashokatree/management": "self.version",
+        "typo3-ter/management": "self.version"
+    }
+}

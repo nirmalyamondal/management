@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:management/Resources/Private/Language/locallang_csh" date="2020-12-13T08:56:27Z" product-name="management">
+		<header/>
+		<body>
+			<trans-unit id="pimage.description" resname="pimage.description">
+				<source>Product Image</source>
+			</trans-unit>
+			<trans-unit id="invoice.description" resname="invoice.description">
+				<source>Invoice</source>
+			</trans-unit>
+			<trans-unit id="customer.description" resname="customer.description">
+				<source>Customer</source>
+			</trans-unit>
+			<trans-unit id="category.description" resname="category.description">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="brand.description" resname="brand.description">
+				<source>Brand</source>
+			</trans-unit>
+			<trans-unit id="serial.description" resname="serial.description">
+				<source>Serial</source>
+			</trans-unit>
+			<trans-unit id="pdate.description" resname="pdate.description">
+				<source>Product Date</source>
+			</trans-unit>
+			<trans-unit id="amcstart.description" resname="amcstart.description">
+				<source>AMC Start</source>
+			</trans-unit>
+			<trans-unit id="amcexpire.description" resname="amcexpire.description">
+				<source>AMC Expire</source>
+			</trans-unit>
+			<trans-unit id="note.description" resname="note.description">
+				<source>Note</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

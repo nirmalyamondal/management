@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:management/Resources/Private/Language/locallang_csh" date="2020-12-13T08:56:27Z" product-name="management">
+		<header/>
+		<body>
+			<trans-unit id="ticket.description" resname="ticket.description">
+				<source>ticket</source>
+			</trans-unit>
+			<trans-unit id="user.description" resname="user.description">
+				<source>user</source>
+			</trans-unit>
+			<trans-unit id="message.description" resname="message.description">
+				<source>message</source>
+			</trans-unit>
+			<trans-unit id="date.description" resname="date.description">
+				<source>date</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

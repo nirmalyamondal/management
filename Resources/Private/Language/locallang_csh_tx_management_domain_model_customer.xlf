@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:management/Resources/Private/Language/locallang_csh" date="2020-12-13T08:56:27Z" product-name="management">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="address.description" resname="address.description">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="email.description" resname="email.description">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="zip.description" resname="zip.description">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="telephone.description" resname="telephone.description">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="username.description" resname="username.description">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="image.description" resname="image.description">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="crdate.description" resname="crdate.description">
+				<source>Created On</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

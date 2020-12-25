@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:management/Resources/Private/Language/locallang" date="2020-12-13T08:56:27Z" product-name="management">
+		<header/>
+		<body>
+			<trans-unit id="tx_management_domain_model_category" resname="tx_management_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_category.name" resname="tx_management_domain_model_category.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_brand" resname="tx_management_domain_model_brand">
+				<source>Brand</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_brand.name" resname="tx_management_domain_model_brand.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_type" resname="tx_management_domain_model_type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_type.name" resname="tx_management_domain_model_type.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_status" resname="tx_management_domain_model_status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_status.name" resname="tx_management_domain_model_status.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_priority" resname="tx_management_domain_model_priority">
+				<source>Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_priority.name" resname="tx_management_domain_model_priority.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product" resname="tx_management_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.invoice" resname="tx_management_domain_model_product.invoice">
+				<source>Invoice</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.customer" resname="tx_management_domain_model_product.customer">
+				<source>Customer</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.category" resname="tx_management_domain_model_product.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.brand" resname="tx_management_domain_model_product.brand">
+				<source>Brand</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.serial" resname="tx_management_domain_model_product.serial">
+				<source>Serial</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.pdate" resname="tx_management_domain_model_product.pdate">
+				<source>Purchase Date</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.amcstart" resname="tx_management_domain_model_product.amcstart">
+				<source>AMC Start</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.amcexpire" resname="tx_management_domain_model_product.amcexpire">
+				<source>AMC Expire</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.note" resname="tx_management_domain_model_product.note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket" resname="tx_management_domain_model_ticket">
+				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.customer" resname="tx_management_domain_model_ticket.customer">
+				<source>Customer</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.product" resname="tx_management_domain_model_ticket.product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.technician" resname="tx_management_domain_model_ticket.technician">
+				<source>Technician</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.type" resname="tx_management_domain_model_ticket.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.priority" resname="tx_management_domain_model_ticket.priority">
+				<source>Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.status" resname="tx_management_domain_model_ticket.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.place" resname="tx_management_domain_model_ticket.place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.name" resname="tx_management_domain_model_ticket.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.passcode" resname="tx_management_domain_model_ticket.passcode">
+				<source>Passcode</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.address" resname="tx_management_domain_model_ticket.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.note" resname="tx_management_domain_model_ticket.note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_message" resname="tx_management_domain_model_message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_message.ticket" resname="tx_management_domain_model_message.ticket">
+				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_message.user" resname="tx_management_domain_model_message.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_message.message" resname="tx_management_domain_model_message.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_message.date" resname="tx_management_domain_model_message.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.name" resname="tx_management_domain_model_customer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.address" resname="tx_management_domain_model_customer.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.email" resname="tx_management_domain_model_customer.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.zip" resname="tx_management_domain_model_customer.zip">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.telephone" resname="tx_management_domain_model_customer.telephone">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.username" resname="tx_management_domain_model_customer.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.image" resname="tx_management_domain_model_customer.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.crdate" resname="tx_management_domain_model_customer.crdate">
+				<source>Created On</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
