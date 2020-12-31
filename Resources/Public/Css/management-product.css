@@ -1,0 +1,35 @@
+.sortStyle { cursor: pointer; }
+.ascStyle {
+  background-image: url(../Images/asc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.descStyle {
+  background-image: url(../Images/desc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.unsortStyle {
+  background-image: url(../Images/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+tr.tablesorter-filter-row td:nth-child(1) input.tablesorter-filter, 
+tr.tablesorter-filter-row td:nth-child(8) input.tablesorter-filter {
+	display:none;
+}
+
+/*product there begins*/
+table.product-detail-table { width:100%; margin:10px 0 15px 0;}
+table.product-detail-table td.tdt-value {
+  border-top:1px solid #4267B2;
+  border-bottom:1px solid #4267B2;
+  border-collapse: collapse;
+}
+table.product-detail-table td { padding: 5px;}
+table.product-detail-table td.tdt-label { background: #9fbfdf; color:#000; border-top:1px solid #fff; text-align: right;}
+form.product-create-form label, form.product-edit-form label { width:100%; margin-top:10px; font-weight:bold; color:#4267B2}
+form.product-create-form select, form.product-create-form input,
+form.product-edit-form select, form.product-edit-form input{ width:100%; border: 1px solid #4267B2;}
+form.product-create-form .mgmt-form-submit, form.product-edit-form .mgmt-form-submit{ background:#4267B2; color:#fff; font-weight:bold; padding:5px 0;}
+/*product theme ends*/

@@ -13,33 +13,68 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Listing for Customer</h1>
-
+    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Listing</span><span class="h4 float-right w-50 text-right"><f:link.action action="new">Create New Customer</f:link.action></span></div>
     <f:flashMessages />
 
-    <table  class="tx_management" >
+    <table  class="tx_management tablesorter tablesorter-blue" id="tx_management_domain_model_customer_table" >
+        <thead>
         <tr>
-            <th><f:translate key="tx_management_domain_model_customer.Username" /></th>
-            <th><f:translate key="tx_management_domain_model_customer.Name" /></th>
-            <th><f:translate key="tx_management_domain_model_customer.Telephone" /></th>
-            <th><f:translate key="tx_management_domain_model_customer.ZIP" /></th>
-            <th><f:translate key="tx_management_domain_model_customer.Address" /></th>
-            <th colspan="3"> </th>
+            <th class="sortStyle"><f:translate key="tx_management_domain_model_customer.username" /></th>
+            <th class="sortStyle"><f:translate key="tx_management_domain_model_customer.name" /></th>
+            <th class="sortStyle"><f:translate key="tx_management_domain_model_customer.telephone" /></th>
+            <th class="sortStyle"><f:translate key="tx_management_domain_model_customer.zip" /></th>
+            <th class="sortStyle"><f:translate key="tx_management_domain_model_customer.email" /></th>
+            <th colspan="3" class="sorter-false"> Actions</th>
         </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th><f:translate key="tx_management_domain_model_customer.username" /></th>
+                <th><f:translate key="tx_management_domain_model_customer.name" /></th>
+                <th><f:translate key="tx_management_domain_model_customer.telephone" /></th>
+                <th><f:translate key="tx_management_domain_model_customer.zip" /></th>
+                <th><f:translate key="tx_management_domain_model_customer.email" /></th>
+                <th colspan="3">&nbsp;</th>
+            </tr>
+            <tr>
+              <td colspan="10">
+                <div class="pager" id="tx_management_domain_model_customer_pager">
+                  <nav class="left">
+                    Tickets per page:
+                    <a href="#" class="current">10</a> |
+                    <a href="#">25</a> |
+                    <a href="#">50</a> |
+                    <a href="#">100</a>
+                  </nav>
+                  <nav class="right">
+                    <span class="prev">
+                      <img src="typo3conf/ext/management/Resources/Public/Images/prev.png" /> Prev&nbsp;
+                    </span>
+                    <span class="pagecount"></span>
+                    &nbsp;<span class="next">Next
+                      <img src="typo3conf/ext/management/Resources/Public/Images/next.png" />
+                    </span>
+                  </nav>
+                </div>
+              </td>
+            </tr>
+        </tfoot> 
+        <tbody>    
         <f:for each="{customers}" as="customer">
             <tr>
                 <td>{customer.username}</td>
                 <td>{customer.name}</td>
                 <td>{customer.telephone}</td>
                 <td>{customer.zip}</td>
-                <td>{customer.address}</td>
-                <td><f:link.action action="show" arguments="{customer : customer.uid}">Detail</f:link.action></td>
+                <td>{customer.email}</td>
+                <td><f:link.action action="show" target="_new" arguments="{customer : customer.uid}">Detail</f:link.action></td>
                 <td><f:link.action action="edit" arguments="{customer : customer.uid}">Edit</f:link.action></td>
                 <td><f:link.action action="delete" arguments="{customer : customer.uid}" onclick="return confirm('Are you sure to DELETE?')" >Delete</f:link.action></td>
             </tr>
         </f:for>
+        </tbody>
     </table>
 
-    <f:link.action action="new">New Customer</f:link.action>
+     <div class="new-data-create text-right pr-4 mb-3"><span class="h4"><f:link.action action="new">Create New Customer</f:link.action></span></div>
 </f:section>
 </html>

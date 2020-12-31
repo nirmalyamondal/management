@@ -13,11 +13,9 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Single View for Customer</h1>
-
+    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Detail View</span><span class="h4 float-right w-50 text-right"><f:link.action action="new">Create New Customer</f:link.action></span></div>
     <f:flashMessages />
     <f:render partial="Customer/Properties" arguments="{customer:customer}" />
-    <f:link.action action="list">Back to list</f:link.action><br />
-    <f:link.action action="new">New Customer</f:link.action>
+    <div class="new-data-create text-right pr-4 mb-3"><span class="h4"><f:link.action action="list">Back to list</f:link.action></span></div>
 </f:section>
 </html>

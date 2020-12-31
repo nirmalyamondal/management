@@ -12,6 +12,10 @@ plugin.tx_management_customer {
         # cat=plugin.tx_management_customer//a; type=string; label=Default storage PID
         storagePid = 2
     }
+    settings {
+        customerPid = 2
+        technicianPid = 26
+    }
 }
 
 plugin.tx_management_product {
@@ -27,6 +31,10 @@ plugin.tx_management_product {
         # cat=plugin.tx_management_product//a; type=string; label=Default storage PID
         storagePid = 24
     }
+    settings {
+        customerPid = 2
+        technicianPid = 26
+    }
 }
 
 plugin.tx_management_ticket {
@@ -41,5 +49,9 @@ plugin.tx_management_ticket {
     persistence {
         # cat=plugin.tx_management_ticket//a; type=string; label=Default storage PID
         storagePid = 23
+    }
+    settings {
+        customerPid = 2
+        technicianPid = 26
     }
 }

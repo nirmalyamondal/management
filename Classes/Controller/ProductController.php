@@ -94,7 +94,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction()
     {
-        $customerAll          = $this->customerRepository->findAll();
+        $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         foreach($customerAll as $customerObj) {  $customerArray[$customerObj->getUid()] = $customerObj->getName().' - '.$customerObj->getUsername(); }
         $categoryAll          = $this->categoryRepository->findAll();
         foreach($categoryAll as $categoryObj) {  $categoryArray[$categoryObj->getUid()] = $categoryObj->getName(); }
@@ -104,6 +104,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         //$this->view->assign('products', $products);
         $newProducts = [];
         foreach ($products as $product) {
+            //print_r($product->getInvoice()); die();
             $newObj = new \stdClass();
             $newObj->uid = $product->getUid();
             $newObj->invoice = $product->getInvoice();
@@ -145,7 +146,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $this->view->assign('categoryAllProcess', $this->auxCategoryBrandObjectProcess($categoryAll));
         $brandAll          = $this->brandRepository->findAll();
         $this->view->assign('brandAllProcess', $this->auxCategoryBrandObjectProcess($brandAll));
-        $customerAll          = $this->customerRepository->findAll();
+        $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customerAllProcess', $this->auxCustomerTechnicianObjectProcess($customerAll));
     }
 
@@ -157,7 +158,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function createAction(\AshokaTree\Management\Domain\Model\Product $newProduct)
     {
-        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $this->addFlashMessage('Product was created.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->productRepository->add($newProduct);
         $this->redirect('list');
     }
@@ -172,7 +173,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function editAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
         $this->view->assign('product', $product);
-        $customerAll  = $this->customerRepository->findAll();
+        $customerAll  = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customerAllProcess', $this->auxCustomerTechnicianObjectProcess($customerAll));
         $categoryAll          = $this->categoryRepository->findAll();
         $this->view->assign('categoryAllProcess', $this->auxCategoryBrandObjectProcess($categoryAll));
@@ -188,8 +189,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function updateAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
-        //echo 'xxxxxxxx'; print_r($product); die();
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $this->addFlashMessage('Product was updated.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->productRepository->update($product);
         $this->redirect('list');
     }
@@ -202,7 +202,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function deleteAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $this->addFlashMessage('Product was deleted.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->productRepository->remove($product);
         $this->redirect('list');
     }

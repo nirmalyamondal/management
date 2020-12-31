@@ -32,4 +32,20 @@ class TechnicianRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $querySettings->setRespectStoragePage(FALSE);
         $this->setDefaultQuerySettings($querySettings);
     }
+
+    /**
+     * Find all records by PID
+     * @param $int
+     * @return boolean|\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult 
+     */
+    public function findAllByPid($pid) {
+        $query = $this->createQuery();
+        $ordering = ['username'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
+        $result = $query->matching($query->equals('pid',$pid))->setLimit(999)->execute();
+        if($query->count()) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }

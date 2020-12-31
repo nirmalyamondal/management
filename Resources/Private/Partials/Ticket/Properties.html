@@ -1,58 +1,66 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<table class="tx-management" >
+<table class="tx-management ticket-detail-table" >
 	<tr>
-		<td>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_ticket.uid" />
+		</td>
+		<td class="tdt-value">
+		{ticket.uid}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.customer" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{customerDetail.name} - {customerDetail.username}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.product" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{productDetail.serial} - {categoryDetail.name} - {brandDetail.name}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.technician" />
 		</td>
-		<td>
-		{technicianDetail.name} - {customerDetail.username}
+		<td class="tdt-value">
+		{technicianDetail.name} - {technicianDetail.username}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.type" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{typeDetail.name}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.priority" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{priorityDetail.name}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.status" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{statusDetail.name}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.place" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{placeDetail}
 		</td>
 	</tr>
@@ -65,34 +73,34 @@
 		</td>
 	</tr-->
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.passcode" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{ticket.passcode}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.address" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{ticket.address}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			<f:translate key="tx_management_domain_model_ticket.note" />
 		</td>
-		<td>
+		<td class="tdt-value">
 		{ticket.note}
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td class="tdt-label">
 			Created
 		</td>
-		<td>
+		<td class="tdt-value">
 		<f:format.date format="d/m/Y - H:i">{ticket.crdate}</f:format.date>
 		</td>
 	</tr>

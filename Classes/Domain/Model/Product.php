@@ -1,8 +1,6 @@
 <?php
 namespace AshokaTree\Management\Domain\Model;
 
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-
 /***
  *
  * This file is part of the "Management" Extension for TYPO3 CMS.
@@ -22,9 +20,8 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * invoice
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @DatabaseField("\TYPO3\CMS\Extbase\Domain\Model\FileReference")
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $invoice = null;
 
@@ -85,11 +82,13 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $note = '';
 
     /**
-     * Build up the object.
+     * Constructor Initialize media relation
+     *
+     * @return AbstractObject
      */
     public function __construct()
     {
-        $this->invoice = new ObjectStorage();
+        $this->invoice = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**

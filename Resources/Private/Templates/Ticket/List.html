@@ -13,13 +13,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Listing for Ticket</h1>
+    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Listing</span><span class="h4 float-right w-50 text-right"><f:link.action action="new">Create New Ticket</f:link.action></span></div>    
 
     <f:flashMessages />
 
-    <table  class="tx_management tablesorter tablesorter-blue" id="tx_management_domain_model_ticket_table">
+    <table class="tx_management tablesorter tablesorter-blue" id="tx_management_domain_model_ticket_table">
         <thead>
             <tr>
+                <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.uid" /></th>
                 <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.customer" /></th>
                 <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.product" /></th>
                 <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.technician" /></th>
@@ -32,6 +33,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </thead>
         <tfoot>
             <tr>
+                <th><f:translate key="tx_management_domain_model_ticket.id" /></th>
                 <th><f:translate key="tx_management_domain_model_ticket.customer" /></th>
                 <th><f:translate key="tx_management_domain_model_ticket.product" /></th>
                 <th><f:translate key="tx_management_domain_model_ticket.technician" /></th>
@@ -42,9 +44,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <th colspan="3">&nbsp;</th>
             <tr>
               <td colspan="10">
-                <div class="pager">
+                <div class="pager" id="tx_management_domain_model_ticket_pager">
                   <nav class="left">
-                    # per page:
+                    Tickets per page:
                     <a href="#" class="current">10</a> |
                     <a href="#">25</a> |
                     <a href="#">50</a> |
@@ -66,14 +68,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <tbody>   
         <f:for each="{tickets}" as="ticket">
             <tr>
-                <td><f:format.html>{ticket.customer}</f:format.html></td>
-                <td><f:format.html>{ticket.product}</f:format.html></td>
-                <td><f:format.html>{ticket.technician}</f:format.html></td>
+                <td>{ticket.uid}</td>
+                <td><f:format.stripTags allowedTags="<br>"><f:format.html>{ticket.customer}</f:format.html></f:format.stripTags></td>
+                <td><f:format.stripTags allowedTags="<br>"><f:format.html>{ticket.product}</f:format.html></f:format.stripTags></td>
+                <td><f:format.stripTags allowedTags="<br>"><f:format.html>{ticket.technician}</f:format.html></f:format.stripTags></td>
                 <td>{ticket.type}</td>
                 <td>{ticket.priority}</td>
                 <td>{ticket.status}</td>
                 <td>{ticket.passcode}</td>
-                <td><f:link.action action="show" arguments="{ticket : ticket.uid}">Detail</f:link.action></td>
+                <td><f:link.action action="show" target="_new" arguments="{ticket : ticket.uid}">Detail</f:link.action></td>
                 <td><f:link.action action="edit" arguments="{ticket : ticket.uid}">Edit</f:link.action></td>
                 <td><f:link.action action="delete" arguments="{ticket : ticket.uid}" onclick="return confirm('Are you sure to DELETE?')" >Delete</f:link.action></td>
             </tr>
@@ -81,6 +84,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
     </tbody>
     </table>
 
-    <f:link.action action="new">New Ticket</f:link.action>
+    <div class="new-data-create text-right pr-4 mb-3"><span class="h4"><f:link.action action="new">Create New Ticket</f:link.action></span></div>
 </f:section>
 </html>
+
+<f:comment>
+<f:section name="HeaderAssetsXXX">
+    <link rel="stylesheet" href="{f:uri.resource(path: 'Css/managementxy.css')}"/>
+</f:section>
+<f:section name="FooterAssetsXXX">
+    <link rel="stylesheet" href="{f:uri.resource(path: 'Css/managementxx.css')}"/>
+</f:section>
+</f:comment>

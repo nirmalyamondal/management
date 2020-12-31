@@ -1,0 +1,37 @@
+.sortStyle { cursor: pointer; }
+.ascStyle {
+  background-image: url(../Images/asc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.descStyle {
+  background-image: url(../Images/desc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.unsortStyle {
+  background-image: url(../Images/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+tr.tablesorter-filter-row td:nth-child(6) input.tablesorter-filter{
+	display:none;
+}
+
+/*customer there begins*/
+table.customer-detail-table { width:100%; margin:10px 0 15px 0;}
+table.customer-detail-table td.tdt-value {
+  border-top:1px solid #4267B2;
+  border-bottom:1px solid #4267B2;
+  border-collapse: collapse;
+}
+table.customer-detail-table td {
+  padding: 5px;
+}
+table.customer-detail-table td.tdt-label { background: #9fbfdf; color:#000; border-top:1px solid #fff; text-align: right;}
+
+form.customer-create-form label, form.customer-edit-form label { width:100%; margin-top:10px; font-weight:bold; color:#4267B2}
+form.customer-create-form select, form.customer-create-form input,
+form.customer-edit-form select, form.customer-edit-form input{ width:100%; border: 1px solid #4267B2;}
+form.customer-create-form .mgmt-form-submit, form.customer-edit-form .mgmt-form-submit{ background:#4267B2; color:#fff; font-weight:bold; padding:5px 0;}
+/*customer theme ends*/

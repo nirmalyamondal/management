@@ -10,8 +10,7 @@ plugin.tx_management_customer {
     }
     persistence {
         storagePid = {$plugin.tx_management_customer.persistence.storagePid}
-        usergroup = 1
-        recursive = 1
+        recursive = 1        
     }
     features {
         #skipDefaultArguments = 1
@@ -24,9 +23,10 @@ plugin.tx_management_customer {
         #callDefaultActionIfActionCantBeResolved = 1
     }
     settings {
-        storagePid = {$plugin.tx_management_customer.persistence.storagePid}
         usergroup = 1
         defaultpwd = nirmalya143
+        customerPid = {$plugin.tx_management_customer.settings.customerPid}
+        technicianPid = {$plugin.tx_management_customer.settings.technicianPid}
     }
 }
 
@@ -41,7 +41,7 @@ plugin.tx_management_product {
     }
     persistence {
         storagePid = {$plugin.tx_management_product.persistence.storagePid}
-        #recursive = 1
+        recursive = 1        
     }
     features {
         #skipDefaultArguments = 1
@@ -52,6 +52,10 @@ plugin.tx_management_product {
     }
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
+    }
+    settings {
+        customerPid = {$plugin.tx_management_product.settings.customerPid}
+        technicianPid = {$plugin.tx_management_product.settings.technicianPid}
     }
 }
 
@@ -67,7 +71,7 @@ plugin.tx_management_ticket {
     persistence {
         storagePid = {$plugin.tx_management_ticket.persistence.storagePid}
         recursive = 1
-    }
+      }
     features {
         #skipDefaultArguments = 1
         # if set to 1, the enable fields are ignored in BE context
@@ -77,6 +81,10 @@ plugin.tx_management_ticket {
     }
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
+    }
+    settings {
+        customerPid = {$plugin.tx_management_ticket.settings.customerPid}
+        technicianPid = {$plugin.tx_management_ticket.settings.technicianPid}
     }
 }
 

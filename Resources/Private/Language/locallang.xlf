@@ -36,6 +36,9 @@
 			<trans-unit id="tx_management_domain_model_product" resname="tx_management_domain_model_product">
 				<source>Product</source>
 			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.uid" resname="tx_management_domain_model_product.uid">
+				<source>Id</source>
+			</trans-unit>
 			<trans-unit id="tx_management_domain_model_product.invoice" resname="tx_management_domain_model_product.invoice">
 				<source>Invoice</source>
 			</trans-unit>
@@ -65,6 +68,9 @@
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_ticket" resname="tx_management_domain_model_ticket">
 				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.uid" resname="tx_management_domain_model_ticket.uid">
+				<source>Id</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_ticket.customer" resname="tx_management_domain_model_ticket.customer">
 				<source>Customer</source>
@@ -102,6 +108,9 @@
 			<trans-unit id="tx_management_domain_model_message" resname="tx_management_domain_model_message">
 				<source>Message</source>
 			</trans-unit>
+			<trans-unit id="tx_management_domain_model_message.uid" resname="tx_management_domain_model_message.uid">
+				<source>Id</source>
+			</trans-unit>
 			<trans-unit id="tx_management_domain_model_message.ticket" resname="tx_management_domain_model_message.ticket">
 				<source>Ticket</source>
 			</trans-unit>
@@ -130,7 +139,7 @@
 				<source>Telephone</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_customer.username" resname="tx_management_domain_model_customer.username">
-				<source>Username</source>
+				<source>Username [Mobile]</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_customer.image" resname="tx_management_domain_model_customer.image">
 				<source>Image</source>

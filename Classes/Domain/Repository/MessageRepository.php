@@ -32,4 +32,21 @@ class MessageRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $querySettings->setRespectStoragePage(FALSE);
         $this->setDefaultQuerySettings($querySettings);
     }
+
+
+    /**
+     * Find all records by ticket
+     * @param $int
+     * @return boolean|\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult 
+     */
+    public function findByTicket($ticket) {
+        $query = $this->createQuery();
+        $ordering = ['uid'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
+        $result = $query->matching($query->equals('ticket',$ticket))->setLimit(999)->execute();
+        if($query->count()) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }

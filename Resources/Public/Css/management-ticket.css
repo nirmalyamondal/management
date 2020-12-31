@@ -1,0 +1,37 @@
+.sortStyle { cursor: pointer; }
+.ascStyle {
+  background-image: url(../Images/asc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.descStyle {
+  background-image: url(../Images/desc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.unsortStyle {
+  background-image: url(../Images/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+tr.tablesorter-filter-row td:nth-child(1) input.tablesorter-filter, tr.tablesorter-filter-row td:nth-child(9) input.tablesorter-filter {
+	display:none;
+}
+
+/*ticket there begins*/
+table.ticket-detail-table { width:100%; margin:10px 0 15px 0;}
+table.ticket-detail-table td.tdt-value {
+  border-top:1px solid #4267B2;
+  border-bottom:1px solid #4267B2;
+  border-collapse: collapse;
+}
+table.ticket-detail-table td {
+  padding: 5px;
+}
+table.ticket-detail-table td.tdt-label { background:#9fbfdf; color:#000; border-top:1px solid #fff; text-align: right;}
+
+form.ticket-create-form label, form.ticket-edit-form label { width:100%; margin-top:10px; font-weight:bold; color:#4267B2}
+form.ticket-create-form select, form.ticket-create-form input,
+form.ticket-edit-form select, form.ticket-edit-form input{ width:100%; border: 1px solid #4267B2;}
+form.ticket-create-form .mgmt-form-submit, form.ticket-edit-form .mgmt-form-submit{ background:#4267B2; color:#fff; font-weight:bold; padding:5px 0;}
+/*ticket theme ends*/

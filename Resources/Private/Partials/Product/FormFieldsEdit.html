@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<label for="existing_invoice">	 
+	<f:translate key="tx_management_domain_model_product.invoice" />: <a href="{product.invoice.originalResource.publicUrl}" target="_blank">{product.invoice.originalResource.name}</a>
+</label><br />
+<!--label for="invoice">
+	Change <f:translate key="tx_management_domain_model_product.invoice" /> (.pdf only) 
+</label><br />
+<f:form.upload property="invoice" additionalAttributes="{accept :'application/pdf', title:'Choose a pdf please'}" name="invoice" /><br /-->
+<label for="customer">
+	<f:translate key="tx_management_domain_model_product.customer" />
+</label><br />
+	<f:form.select property="customer" options="{customerAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="category">
+	<f:translate key="tx_management_domain_model_product.category" />
+</label><br />
+	<f:form.select property="category" options="{categoryAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="brand">
+	<f:translate key="tx_management_domain_model_product.brand" />
+</label><br />
+	<f:form.select property="brand" options="{brandAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="serial">
+	<f:translate key="tx_management_domain_model_product.serial" />
+</label><br />
+	<f:form.textfield property="serial" additionalAttributes="{required:'required'}" /><br />
+<label for="pdate">
+	<f:translate key="tx_management_domain_model_product.pdate" />
+</label><br />
+	<f:form.textfield property="pdate" id="pdate" type="text" additionalAttributes="{required:'required'}" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br /> 
+<label for="amcstart">
+	<f:translate key="tx_management_domain_model_product.amcstart" />
+</label><br />
+	<f:form.textfield property="amcstart" id="amcstart" type="text" value="{product.amcstart->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br />
+<label for="amcexpire">
+	<f:translate key="tx_management_domain_model_product.amcexpire" />
+</label><br />
+	<f:form.textfield property="amcexpire" id="amcexpire" type="text" value="{product.amcexpire->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br />
+<label for="note">
+	<f:translate key="tx_management_domain_model_product.note" />
+</label><br />
+	<f:form.textfield property="note" /><br />
+</html>
+
+<f:comment>{product.invoice.originalResource.publicUrl} {product.invoice.originalResource.name} </f:comment>

@@ -1,0 +1,51 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<label for="customer">
+	<f:translate key="tx_management_domain_model_ticket.customer" />
+</label><br />
+	<f:form.select property="customer" options="{customerAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="product">
+	<f:translate key="tx_management_domain_model_ticket.product" />
+</label><br />
+	<f:form.select property="product" options="{productAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="technician">
+	<f:translate key="tx_management_domain_model_ticket.technician" />
+</label><br />
+	<f:form.select property="technician" options="{technicianAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="type">
+	<f:translate key="tx_management_domain_model_ticket.type" />
+</label><br />
+	<f:form.select property="type" options="{typeAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="priority">
+	<f:translate key="tx_management_domain_model_ticket.priority" />
+</label><br />
+	<f:form.select property="priority" options="{priorityAllProcess}" optionValueField="key" optionLabelField="value" /><br />
+<label for="status">
+	<f:translate key="tx_management_domain_model_ticket.status" />
+</label><br />
+	<f:form.select property="status" options="{statusAllProcess}" optionValueField="key" optionLabelField="value" value="{ticket.status}" /><br />
+<label for="place">
+	<f:translate key="tx_management_domain_model_ticket.place" />
+</label><br />
+	<f:form.select property="place" options="{1: 'Carry In - Service Center', 2: 'Onsite - Home Service'}" value="{ticket.place}"/><br />
+<!--
+<label for="name">
+	<f:translate key="tx_management_domain_model_ticket.name" />
+</label><br />
+	<f:form.textfield property="name" /><br />
+-->
+<label for="passcode">
+	<f:translate key="tx_management_domain_model_ticket.passcode" />
+</label><br />
+	<f:form.textfield property="passcode" value="{ticket.passcode}" additionalAttributes="{required:'required', minlength:'6', maxlength:'6', pattern:'[0-9]+'}" /><br />
+	
+<label for="address">
+	<f:translate key="tx_management_domain_model_ticket.address" />	
+</label><br />
+	<f:form.textfield property="address" value="{ticket.address}" /><br />	
+<label for="note">
+	<f:translate key="tx_management_domain_model_ticket.note" />
+</label><br />
+	<f:form.textfield property="note" /><br />
+</html>
+	

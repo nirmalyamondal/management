@@ -9,11 +9,11 @@ call_user_func(
             'AshokaTree.Management',
             'Customer',
             [
-                'Customer' => 'new, create, list, show, edit, update, delete'
+                'Customer' => 'list, new, create, show, edit, update, delete'
             ],
             // non-cacheable actions
             [
-                'Customer' => 'new, create, list, show, edit, update, delete'
+                'Customer' => 'list, new, create, show, edit, update, delete'
             ]
         );
 
@@ -21,11 +21,11 @@ call_user_func(
             'AshokaTree.Management',
             'Product',
             [
-                'Product' => 'new, create, list, show, edit, update, delete'
+                'Product' => 'list, new, create, show, edit, update, delete'
             ],
             // non-cacheable actions
             [
-                'Product' => 'new, create, list, show, edit, update, delete'
+                'Product' => 'list, new, create, show, edit, update, delete'
             ]
         );
 
@@ -33,11 +33,11 @@ call_user_func(
             'AshokaTree.Management',
             'Ticket',
             [
-                'Ticket' => 'new, create, list, show, edit, update, delete'
+                'Ticket' => 'list, new, create, show, edit, update, delete'
             ],
             // non-cacheable actions
             [
-                'Ticket' => 'new, create, list, show, edit, update, delete'
+                'Ticket' => 'list, new, create, show, edit, update, delete'
             ]
         );
 

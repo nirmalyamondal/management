@@ -149,7 +149,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'fe_users',
-                'foreign_table_where' => ' AND fe_users.pid=2',
+                'foreign_table_where' => ' AND fe_users.pid=26',
                 'size' => 1,
                 'maxitems' => 1,
                 'eval' => ''

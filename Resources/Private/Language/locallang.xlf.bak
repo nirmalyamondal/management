@@ -36,6 +36,9 @@
 			<trans-unit id="tx_management_domain_model_product" resname="tx_management_domain_model_product">
 				<source>Product</source>
 			</trans-unit>
+			<trans-unit id="tx_management_domain_model_product.uid" resname="tx_management_domain_model_product.uid">
+				<source>Id</source>
+			</trans-unit>
 			<trans-unit id="tx_management_domain_model_product.invoice" resname="tx_management_domain_model_product.invoice">
 				<source>Invoice</source>
 			</trans-unit>
@@ -52,19 +55,22 @@
 				<source>Serial</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_product.pdate" resname="tx_management_domain_model_product.pdate">
-				<source>Pdate</source>
+				<source>Purchase Date</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_product.amcstart" resname="tx_management_domain_model_product.amcstart">
-				<source>Amcstart</source>
+				<source>AMC Start</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_product.amcexpire" resname="tx_management_domain_model_product.amcexpire">
-				<source>Amcexpire</source>
+				<source>AMC Expire</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_product.note" resname="tx_management_domain_model_product.note">
 				<source>Note</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_ticket" resname="tx_management_domain_model_ticket">
 				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_ticket.uid" resname="tx_management_domain_model_ticket.uid">
+				<source>Id</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_ticket.customer" resname="tx_management_domain_model_ticket.customer">
 				<source>Customer</source>
@@ -93,8 +99,8 @@
 			<trans-unit id="tx_management_domain_model_ticket.passcode" resname="tx_management_domain_model_ticket.passcode">
 				<source>Passcode</source>
 			</trans-unit>
-			<trans-unit id="tx_management_domain_model_ticket.note" resname="tx_management_domain_model_ticket.note">
-				<source>Note</source>
+			<trans-unit id="tx_management_domain_model_ticket.address" resname="tx_management_domain_model_ticket.address">
+				<source>Address</source>
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_ticket.note" resname="tx_management_domain_model_ticket.note">
 				<source>Note</source>
@@ -113,6 +119,30 @@
 			</trans-unit>
 			<trans-unit id="tx_management_domain_model_message.date" resname="tx_management_domain_model_message.date">
 				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.name" resname="tx_management_domain_model_customer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.address" resname="tx_management_domain_model_customer.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.email" resname="tx_management_domain_model_customer.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.zip" resname="tx_management_domain_model_customer.zip">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.telephone" resname="tx_management_domain_model_customer.telephone">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.username" resname="tx_management_domain_model_customer.username">
+				<source>Username [Mobile]</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.image" resname="tx_management_domain_model_customer.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_management_domain_model_customer.crdate" resname="tx_management_domain_model_customer.crdate">
+				<source>Created On</source>
 			</trans-unit>
 		</body>
 	</file>

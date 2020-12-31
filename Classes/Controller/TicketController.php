@@ -179,6 +179,24 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     }
 
     /**
+     * messageRepository
+     * 
+     * @var \AshokaTree\Management\Domain\Repository\MessageRepository
+     * @inject
+     */
+    protected $messageRepository = null;
+
+    /**
+     * Inject a Message repository to enable DI
+     *
+     * @param \AshokaTree\Management\Domain\Repository\MessageRepository $messageRepository
+     */
+    public function injectMessageRepository(\AshokaTree\Management\Domain\Repository\MessageRepository $messageRepository)
+    {
+        $this->messageRepository = $messageRepository;
+    }
+
+    /**
      * action list
      * 
      * @return void
@@ -186,7 +204,7 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     public function listAction()
     {
         $tickets = $this->ticketRepository->findAll();
-        $customerAll          = $this->customerRepository->findAll();
+        $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         foreach($customerAll as $customerObj) {  $customerArray[$customerObj->getUid()] = $customerObj->getName().'<br/>'.$customerObj->getUsername(); }
         $statusAll          = $this->statusRepository->findAll();
         foreach($statusAll as $statusObj) {  $statusArray[$statusObj->getUid()] = $statusObj->getName(); }
@@ -198,9 +216,9 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         foreach($categoryAll as $categoryObj) {  $categoryArray[$categoryObj->getUid()] = $categoryObj->getName(); }
         $brandAll          = $this->brandRepository->findAll();
         foreach($brandAll as $brandObj) {  $brandArray[$brandObj->getUid()] = $brandObj->getName(); }
-        $technicianAll       = $this->technicianRepository->findAll();
+        $technicianAll       = $this->technicianRepository->findAllByPid($this->settings['technicianPid']);
         foreach($technicianAll as $technicianObj) { 
-            $technicianArray[$technicianObj->getUid()] = $customerObj->getName().'<br/>'.$customerObj->getUsername(); 
+            $technicianArray[$technicianObj->getUid()] = $technicianObj->getName().'<br/>'.$technicianObj->getUsername(); 
         }
         $productAll          = $this->productRepository->findAll();
         foreach($productAll as $productObj) {  
@@ -252,6 +270,19 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $brandDetail = $this->brandRepository->findByUid($productDetail->getBrand());
         $this->view->assign('brandDetail', $brandDetail);
         $this->view->assign('placeDetail', $this->placeArray[$ticket->getPlace()]);
+        $messages = $this->messageRepository->findByTicket($ticket->getUid());
+        $newMessages = [];
+        if($messages && count($messages) > 0) {
+           foreach($messages as $message) {
+                $newObj = new \stdClass();
+                $newObj->uid = $message->getUid();
+                $newObj->user = $this->customerRepository->findByUid($message->getUser());
+                $newObj->message = $message->getMessage();
+                $newObj->date = $message->getDate();
+                $newMessages[] = $newObj;
+            }
+            $this->view->assign('messages', $newMessages);
+        }
     }
 
     /**
@@ -267,9 +298,9 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $this->view->assign('typeAllProcess', $this->auxStatusTypePriorityObjectProcess($typeAll));
         $priorityAll          = $this->priorityRepository->findAll();
         $this->view->assign('priorityAllProcess', $this->auxStatusTypePriorityObjectProcess($priorityAll));
-        $customerAll          = $this->customerRepository->findAll();
+        $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customerAllProcess', $this->auxCustomerTechnicianObjectProcess($customerAll));
-        $technicianAll          = $this->technicianRepository->findAll();
+        $technicianAll          = $this->technicianRepository->findAllByPid($this->settings['technicianPid']);
         $this->view->assign('technicianAllProcess', $this->auxCustomerTechnicianObjectProcess($technicianAll));
         $productAll          = $this->productRepository->findAll();
         $categoryAllObj          = $this->categoryRepository->findAll();
@@ -309,9 +340,9 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $this->view->assign('typeAllProcess', $this->auxStatusTypePriorityObjectProcess($typeAll));
         $priorityAll          = $this->priorityRepository->findAll();
         $this->view->assign('priorityAllProcess', $this->auxStatusTypePriorityObjectProcess($priorityAll));
-        $customerAll          = $this->customerRepository->findAll();
+        $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customerAllProcess', $this->auxCustomerTechnicianObjectProcess($customerAll));
-        $technicianAll          = $this->technicianRepository->findAll();
+        $technicianAll          = $this->technicianRepository->findAllByPid($this->settings['technicianPid']);
         $this->view->assign('technicianAllProcess', $this->auxCustomerTechnicianObjectProcess($technicianAll));
         $productAll          = $this->productRepository->findAll();
         $categoryAllObj          = $this->categoryRepository->findAll();
@@ -371,6 +402,18 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     }
 
     public function auxProductObjectProcess($objectAll,$categoryArr,$brandArr) {
+        $newObjects = [];
+        foreach ($objectAll as $object) {
+            $newObj = new \stdClass();
+            $newObj->key = $object->getUid();
+            $newObj->value = $object->getSerial().' - '.$categoryArr[$object->getCategory()].' - '.$brandArr[$object->getBrand()];
+            //$newObj->value = LocalizationUtility::translate('newObj.' . $object->getName(), 'management');
+            $newObjects[] = $newObj;
+        }
+    return $newObjects;
+    }
+
+    public function auxMessageObjectProcess($objectAll,$userArr) {
         $newObjects = [];
         foreach ($objectAll as $object) {
             $newObj = new \stdClass();

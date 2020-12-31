@@ -13,15 +13,15 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>New Customer</h1>
-
+    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Create New Customer</span><span class="h4 float-right w-50 text-right"><f:link.action action="list">Back to list</f:link.action></span></div>
     <f:flashMessages />
 
     <f:render partial="FormErrors" />
 
-    <f:form action="create"  enctype="multipart/form-data"  name="newCustomer" object="{newCustomer}">
-    <f:render partial="Customer/FormFields" />
-    <f:form.submit value="Create new" />
+    <f:form action="create" class="customer-create-form" enctype="multipart/form-data" name="newCustomer" object="{newCustomer}">
+    <f:render partial="Customer/FormFieldsNew" />
+    <br/><f:form.submit value="Submit" class="mgmt-form-submit" /><br/><br/>
     </f:form>
+    <div class="new-data-create text-right pr-4 mb-3"><span class="h4"><f:link.action action="list">Back to list</f:link.action></span></div>   
 </f:section>
 </html>

@@ -43,7 +43,7 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function listAction()
     {
-        $customers = $this->customerRepository->findAll();
+        $customers = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customers', $customers);
     }
 
@@ -76,7 +76,7 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function createAction(\AshokaTree\Management\Domain\Model\Customer $newCustomer)
     {    
-        $newCustomer->setPid($this->settings['storagePid']);
+        $newCustomer->setPid($this->settings['customerPid']);
         $newCustomer->setUsergroup($this->settings['usergroup']);
         $newCustomer->setPassword($this->settings['defaultpwd']);
         $username   = $newCustomer->getUsername();
@@ -110,7 +110,13 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function updateAction(\AshokaTree\Management\Domain\Model\Customer $customer)
     {
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        /*$username   = $customer->getUsername();
+        $userExistOrNot = $this->auxUserAlreadyExist($username);
+        if($userExistOrNot) {
+            $this->addFlashMessage('Username '.$username.' already exist! ', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+            $this->redirect('edit', 'Customer', 'Management', ['customer'=> $customer], $TSFE->id, $delay = 0, $statusCode = 303);
+        }*/
+        $this->addFlashMessage('Customer "'.$customer->getName().' - '.$customer->getUsername().'" have been updated.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->customerRepository->update($customer);
         $this->redirect('list');
     }
@@ -123,7 +129,7 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function deleteAction(\AshokaTree\Management\Domain\Model\Customer $customer)
     {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $this->addFlashMessage('Customer "'.$customer->getName().' - '.$customer->getUsername().'" have been deleted.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->customerRepository->remove($customer);
         $this->redirect('list');
     }
