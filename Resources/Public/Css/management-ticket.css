@@ -1,3 +1,5 @@
+.show { display:block; }
+.hidden { display:none; }
 .sortStyle { cursor: pointer; }
 .ascStyle {
   background-image: url(../Images/asc.gif);
@@ -32,6 +34,15 @@ table.ticket-detail-table td.tdt-label { background:#9fbfdf; color:#000; border-
 
 form.ticket-create-form label, form.ticket-edit-form label { width:100%; margin-top:10px; font-weight:bold; color:#4267B2}
 form.ticket-create-form select, form.ticket-create-form input,
-form.ticket-edit-form select, form.ticket-edit-form input{ width:100%; border: 1px solid #4267B2;}
-form.ticket-create-form .mgmt-form-submit, form.ticket-edit-form .mgmt-form-submit{ background:#4267B2; color:#fff; font-weight:bold; padding:5px 0;}
+form.ticket-edit-form select, form.ticket-edit-form input,
+form.message-create-form .message-input { width:100%; border: 1px solid #4267B2;}
+
+form.ticket-create-form .mgmt-form-submit, 
+form.ticket-edit-form .mgmt-form-submit { background:#4267B2; color:#fff; font-weight:bold; padding:5px 0; }
+
+form.message-create-form input.message-form-submit { width:100%; background:#4267B2; color:#fff; font-weight:bold; border:none; padding:5px 0; margin-top:10px; }
 /*ticket theme ends*/
+
+/*Message listing theme begins*/
+.message-list-table tr.odd-msg { background:#9fbfdf; color:#000; }
+/*Message listing theme ends*/

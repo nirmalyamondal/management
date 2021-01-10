@@ -1,0 +1,86 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<table class="tx-management product-detail-table" >
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.uid" />
+		</td>
+		<td class="tdt-value">
+		{product.uid}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.invoice" />
+		</td>
+		<td class="tdt-value">
+			<a href="{product.invoice.originalResource.publicUrl}" target="_blank">
+				{product.invoice.originalResource.name}
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.customer" />
+		</td>
+		<td class="tdt-value">
+		{customerDetail.name} - {customerDetail.username}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.category" />
+		</td>
+		<td class="tdt-value">
+		{categoryDetail.name}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.brand" />
+		</td>
+		<td class="tdt-value">
+		{brandDetail.name}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.serial" />
+		</td>
+		<td class="tdt-value">
+		{product.serial}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.pdate" />
+		</td>
+		<td class="tdt-value">
+		{product.pdate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.amcstart" />
+		</td>
+		<td class="tdt-value">
+		{product.amcstart -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.amcexpire" />
+		</td>
+		<td class="tdt-value">
+		{product.amcexpire -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td class="tdt-label">
+			<f:translate key="tx_management_domain_model_product.note" />
+		</td>
+		<td class="tdt-value">
+		{product.note}
+		</td>
+	</tr>
+</table>
+</html>

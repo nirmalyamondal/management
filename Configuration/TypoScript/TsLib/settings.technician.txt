@@ -1,0 +1,39 @@
+
+[page["uid"] == {$ticket_pageid_technician}]
+plugin.tx_management_ticket.view.templateRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Templates/
+plugin.tx_management_ticket.view.partialRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Partials/
+plugin.tx_management_ticket.view.layoutRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Layouts/
+
+page.includeCSS {
+	59 = typo3conf/ext/management/Resources/Public/Css/management-ticket.css
+}
+page.includeJSFooter {
+	file59 = typo3conf/ext/management/Resources/Public/Js/management-ticket-technician.js
+}
+[global]
+
+[page["uid"] == {$product_pageid_technician}]
+plugin.tx_management_product.view.templateRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Templates/
+plugin.tx_management_product.view.partialRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Partials/
+plugin.tx_management_product.view.layoutRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Layouts/
+
+page.includeCSS {
+	59 = typo3conf/ext/management/Resources/Public/Css/management-product.css
+}
+page.includeJSFooter {
+	file59 = typo3conf/ext/management/Resources/Public/Js/management-product-technician.js
+}
+[global]
+
+[page["uid"] == {$customer_pageid_technician}]
+plugin.tx_management_customer.view.templateRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Templates/
+plugin.tx_management_customer.view.partialRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Partials/
+plugin.tx_management_customer.view.layoutRootPaths.10 = EXT:management/Resources/Private/TechnicianGroup/Layouts/
+
+page.includeCSS {
+	59 = typo3conf/ext/management/Resources/Public/Css/management-customer.css
+}
+page.includeJSFooter {
+	file59 = typo3conf/ext/management/Resources/Public/Js/management-customer-technician.js
+}
+[global]

@@ -59,15 +59,6 @@ $(function(){
 });
 
 $(function(){
-
-  // initialize custom pager script BEFORE initializing tablesorter/tablesorter pager
-  // custom pager looks like this:
-  // 1 | 2 … 5 | 6 | 7 … 99 | 100
-  //   _       _   _        _     adjacentSpacer
-  //       _           _          distanceSpacer
-  // _____               ________ ends (2 default)
-  //         _________            aroundCurrent (1 default)
-
   var $table = $('#tx_management_domain_model_message_table'),
     $pager = $('#tx_management_domain_model_message_pager');
 
@@ -100,50 +91,3 @@ $(function(){
     });
 
 });
-
-$(function () {
-    $("#pdate").datepicker(
-      {
-        dateFormat: 'dd-mm-yy'
-      }
-    );
-    /*$("#amcstart").datepicker(
-      {
-        dateFormat: "dd-mm-yy"
-      }).datepicker("setDate", "0");*/
-    $("#amcstart").datepicker(
-      {
-        dateFormat: "dd-mm-yy"
-      }
-    );  
-    $("#newProduct #amcexpire").datepicker(
-      {
-        dateFormat: "dd-mm-yy"
-      }).datepicker("setDate", "0");
-    //Edit product
-    $("#editProduct #amcexpire").datepicker(
-      {
-        dateFormat: "dd-mm-yy"
-      });
-    
-
-    //$("#newProduct").validate({  
-    $('#newProductSubmit').click( function() {    
-      var amcExpire = $('#amcexpire').val();
-      if(amcExpire) {
-        var amcStart      = $("#amcstart").val();
-        var amcStartArr   = amcStart.split("-"); //dd-mm-yyyy
-        var amcStartTime  = new Date(amcStartArr[2], amcStartArr[1] - 1, amcStartArr[0]); // new Date(yyyy, mm, dd);
-
-        var amcExpireArr   = amcExpire.split("-"); //dd-mm-yyyy
-        var amcExpireTime  = new Date(amcExpireArr[2], amcExpireArr[1] - 1, amcExpireArr[0]); // new Date(yyyy, mm, dd);
-        //alert(amcstartTime+' '+$('#amcexpire').val());
-        if (amcStartTime > amcExpireTime){
-          alert('AMC Expire date should be greater than '+$('#amcstart').val());
-          return false;
-        }
-      }
-    });
-
-});
-

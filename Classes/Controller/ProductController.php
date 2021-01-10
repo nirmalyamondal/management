@@ -94,6 +94,10 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction()
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]);   
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+             $this->redirect('new');
+        }
         $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         foreach($customerAll as $customerObj) {  $customerArray[$customerObj->getUid()] = $customerObj->getName().' - '.$customerObj->getUsername(); }
         $categoryAll          = $this->categoryRepository->findAll();
@@ -126,6 +130,11 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function showAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Product-show]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
         $this->view->assign('product', $product);
         $customerDetail = $this->customerRepository->findByUid($product->getCustomer());
         $this->view->assign('customerDetail', $customerDetail);
@@ -158,7 +167,8 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function createAction(\AshokaTree\Management\Domain\Model\Product $newProduct)
     {
-        $this->addFlashMessage('Product was created.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $newSerial  = $newProduct->getSerial();
+        $this->addFlashMessage('Product has been created with Serial: '.$newSerial, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->productRepository->add($newProduct);
         $this->redirect('list');
     }
@@ -172,6 +182,11 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function editAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Product-edit]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
         $this->view->assign('product', $product);
         $customerAll  = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customerAllProcess', $this->auxCustomerTechnicianObjectProcess($customerAll));
@@ -189,7 +204,13 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function updateAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
-        $this->addFlashMessage('Product was updated.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Product-update]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
+        $newSerial  = $product->getSerial();
+        $this->addFlashMessage('Product has been updated with Serial: '.$newSerial, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->productRepository->update($product);
         $this->redirect('list');
     }
@@ -202,7 +223,13 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function deleteAction(\AshokaTree\Management\Domain\Model\Product $product)
     {
-        $this->addFlashMessage('Product was deleted.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Product-delete]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
+        $newSerial  = $product->getSerial();
+        $this->addFlashMessage('Product has been deleted with Serial: '.$newSerial, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->productRepository->remove($product);
         $this->redirect('list');
     }

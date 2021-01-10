@@ -23,7 +23,7 @@
 <label for="status">
 	<f:translate key="tx_management_domain_model_ticket.status" />
 </label><br />
-	<f:form.select property="status" options="{statusAllProcess}" optionValueField="key" optionLabelField="value" value="{ticket.status}" /><br />
+	<f:form.select property="status" options="{statusAllProcess}" optionValueField="key" optionLabelField="value" value="{settings.openStatusUid}" disabled="disabled" /><br />
 <label for="place">
 	<f:translate key="tx_management_domain_model_ticket.place" />
 </label><br />
@@ -34,14 +34,16 @@
 </label><br />
 	<f:form.textfield property="name" /><br />
 -->
-<label for="passcode">
+<span style="display:none;">
+<label for="passcode" >
 	<f:translate key="tx_management_domain_model_ticket.passcode" />
 </label><br />
 	<f:form.textfield property="passcode" value="{passcode}" additionalAttributes="{id:'management_passcode', required:'required',autocomplete:'off', minlength:'6', maxlength:'6', pattern:'[0-9]+'}" /><br />
+</span>	
 <label for="address">
 	<f:translate key="tx_management_domain_model_ticket.address" />	
 </label><br />
-	<f:form.textfield property="address" value="{ticket.address}" additionalAttributes="{required:'required',autocomplete:'off'}" /><br />	
+	<f:form.textfield property="address" value="{ticket.address}" additionalAttributes="{required:'required',autocomplete:'off', minlength:'2'}"  /><br />	
 <label for="note">
 	<f:translate key="tx_management_domain_model_ticket.note" />
 </label><br />

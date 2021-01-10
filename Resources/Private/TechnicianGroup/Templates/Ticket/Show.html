@@ -13,20 +13,29 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Detail View</span><span class="h4 float-right w-50 text-right"><f:link.action action="new">Create New Ticket</f:link.action></span></div> 
+    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Detail View</span><span class="h4 float-right w-50 text-right"><f:link.action action="list">Back to list</f:link.action></span></div> 
     <f:flashMessages />
     <f:render partial="Ticket/Properties" arguments="{ticket:ticket, statusDetail:statusDetail, typeDetail:typeDetail, priorityDetail:priorityDetail, customerDetail:customerDetail, technicianDetail:technicianDetail, productDetail:productDetail, categoryDetail:categoryDetail, brandDetail:brandDetail, placeDetail:placeDetail}" />
   <div class="new-data-create text-right pr-4"><span class="h4"><f:link.action action="list">Back to list</f:link.action></span></div>  
   <div class="new-data-message"><span class="h4 float-left w-100 mb-4">Messages</span></div>
+    <f:form action="createMessage" class="message-create-form" enctype="multipart/form-data"  name="newMessage" object="{newMessage}">
+    	<label for="messagenew" >
+			<f:translate key="tx_management_domain_model_ticket.messagenew" />
+		</label>
+			<f:form.textfield property="messagenew" value="" placeholder="Enter new message!" additionalAttributes="{required:'required',autocomplete:'off', minlength:'2', maxlength:'150',class:'message-input'}" />
+			<f:form.hidden property="ticketid" value="{ticket.uid}" />
+		</span>
+    	<br/><f:form.submit value="Submit" class="message-form-submit" /><br/><br/>
+    </f:form>
   <f:if condition="{messages -> f:count()} > 0">
     <f:then>
       <f:render partial="Ticket/Messages" arguments="{messages:messages}" />     
     </f:then>
     <f:else>
-      <p>No Messages found!</p>
-    </f:else>
+      <p class="mb-3">No Messages found!</p>
+    </f:else>    
   </f:if>
-  <div class="mb-3">&nbsp;</div> 
+  	<div class="mb-3">&nbsp;</div>
 </f:section>
 </html>
 <f:debug>{ticket}</f:debug>

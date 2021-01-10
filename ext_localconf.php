@@ -33,11 +33,11 @@ call_user_func(
             'AshokaTree.Management',
             'Ticket',
             [
-                'Ticket' => 'list, new, create, show, edit, update, delete'
+                'Ticket' => 'list, new, create, show, edit, update, delete, createMessage'
             ],
             // non-cacheable actions
             [
-                'Ticket' => 'list, new, create, show, edit, update, delete'
+                'Ticket' => 'list, new, create, show, edit, update, delete, createMessage'
             ]
         );
 

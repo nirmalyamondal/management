@@ -43,6 +43,10 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function listAction()
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]);   
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+             $this->redirect('new');
+        }
         $customers = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         $this->view->assign('customers', $customers);
     }
@@ -55,6 +59,11 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function showAction(\AshokaTree\Management\Domain\Model\Customer $customer)
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Customer-show]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
         $this->view->assign('customer', $customer);
     }
 
@@ -99,6 +108,11 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function editAction(\AshokaTree\Management\Domain\Model\Customer $customer)
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Customer-edit]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
         $this->view->assign('customer', $customer);
     }
 
@@ -116,6 +130,11 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
             $this->addFlashMessage('Username '.$username.' already exist! ', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
             $this->redirect('edit', 'Customer', 'Management', ['customer'=> $customer], $TSFE->id, $delay = 0, $statusCode = 303);
         }*/
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Customer-update]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
         $this->addFlashMessage('Customer "'.$customer->getName().' - '.$customer->getUsername().'" have been updated.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->customerRepository->update($customer);
         $this->redirect('list');
@@ -129,6 +148,11 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     public function deleteAction(\AshokaTree\Management\Domain\Model\Customer $customer)
     {
+        $userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]);   
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Customer-delete]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
         $this->addFlashMessage('Customer "'.$customer->getName().' - '.$customer->getUsername().'" have been deleted.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->customerRepository->remove($customer);
         $this->redirect('list');

@@ -37,15 +37,15 @@
 <label for="passcode">
 	<f:translate key="tx_management_domain_model_ticket.passcode" />
 </label><br />
-	<f:form.textfield property="passcode" value="{ticket.passcode}" additionalAttributes="{required:'required', minlength:'6', maxlength:'6', pattern:'[0-9]+'}" /><br />
+	<f:form.textfield property="passcode" value="{ticket.passcode}" additionalAttributes="{id:'management_passcode', required:'required',autocomplete:'off', minlength:'6', maxlength:'6', pattern:'[0-9]+'}" /><br />
 	
 <label for="address">
 	<f:translate key="tx_management_domain_model_ticket.address" />	
 </label><br />
-	<f:form.textfield property="address" value="{ticket.address}" /><br />	
+	<f:form.textfield property="address" value="{ticket.address}" additionalAttributes="{required:'required',autocomplete:'off'}" /><br />	
 <label for="note">
 	<f:translate key="tx_management_domain_model_ticket.note" />
 </label><br />
-	<f:form.textfield property="note" /><br />
+	<f:form.textfield property="note" additionalAttributes="{autocomplete:'off'}" /><br />
 </html>
 	

@@ -20,7 +20,7 @@ class MessageRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	
 	// Order by date
 	protected $defaultOrderings = [
-		'date' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+		'date' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
 	];
 
     // Status repository settings
@@ -40,8 +40,12 @@ class MessageRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @return boolean|\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult 
      */
     public function findByTicket($ticket) {
-        $query = $this->createQuery();
-        $ordering = ['uid'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
+        $query = $this->createQuery();        
+        $query->setOrderings(
+            [
+                'uid' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+            ]
+        );
         $result = $query->matching($query->equals('ticket',$ticket))->setLimit(999)->execute();
         if($query->count()) {
             return $result;

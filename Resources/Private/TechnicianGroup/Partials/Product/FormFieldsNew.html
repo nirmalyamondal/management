@@ -22,7 +22,7 @@
 <label for="pdate">
 	<f:translate key="tx_management_domain_model_product.pdate" />
 </label><br />
-	<f:form.textfield property="pdate" id="pdate" type="text" additionalAttributes="{required:'required'}" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" additionalAttributes="{autocomplete:'off'}" /><br /> 
+	<f:form.textfield property="pdate" id="pdate" type="text" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" additionalAttributes="{required:'required',autocomplete:'off'}" /><br /> 
 <label for="amcstart">
 	<f:translate key="tx_management_domain_model_product.amcstart" />
 </label><br />

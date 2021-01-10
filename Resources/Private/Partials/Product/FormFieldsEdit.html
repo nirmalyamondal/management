@@ -21,23 +21,23 @@
 <label for="serial">
 	<f:translate key="tx_management_domain_model_product.serial" />
 </label><br />
-	<f:form.textfield property="serial" additionalAttributes="{required:'required'}" /><br />
+	<f:form.textfield property="serial" additionalAttributes="{required:'required',autocomplete:'off'}" /><br />
 <label for="pdate">
 	<f:translate key="tx_management_domain_model_product.pdate" />
 </label><br />
-	<f:form.textfield property="pdate" id="pdate" type="text" additionalAttributes="{required:'required'}" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br /> 
+	<f:form.textfield property="pdate" id="pdate" type="text" additionalAttributes="{required:'required',autocomplete:'off'}" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br /> 
 <label for="amcstart">
 	<f:translate key="tx_management_domain_model_product.amcstart" />
 </label><br />
-	<f:form.textfield property="amcstart" id="amcstart" type="text" value="{product.amcstart->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br />
+	<f:form.textfield property="amcstart" id="amcstart" type="text" value="{product.amcstart->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" additionalAttributes="{autocomplete:'off'}" /><br />
 <label for="amcexpire">
 	<f:translate key="tx_management_domain_model_product.amcexpire" />
 </label><br />
-	<f:form.textfield property="amcexpire" id="amcexpire" type="text" value="{product.amcexpire->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" /><br />
+	<f:form.textfield property="amcexpire" id="amcexpire" type="text" value="{product.amcexpire->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" additionalAttributes="{autocomplete:'off'}" /><br />
 <label for="note">
 	<f:translate key="tx_management_domain_model_product.note" />
 </label><br />
-	<f:form.textfield property="note" /><br />
+	<f:form.textfield property="note" additionalAttributes="{autocomplete:'off'}" /><br />
 </html>
 
 <f:comment>{product.invoice.originalResource.publicUrl} {product.invoice.originalResource.name} </f:comment>

@@ -17,14 +17,6 @@ $(document).ready(function(){
 
 $(function(){
 
-  // initialize custom pager script BEFORE initializing tablesorter/tablesorter pager
-  // custom pager looks like this:
-  // 1 | 2 … 5 | 6 | 7 … 99 | 100
-  //   _       _   _        _     adjacentSpacer
-  //       _           _          distanceSpacer
-  // _____               ________ ends (2 default)
-  //         _________            aroundCurrent (1 default)
-
   var $table = $('#tx_management_domain_model_customer_table'),
     $pager = $('#tx_management_domain_model_customer_pager');
 

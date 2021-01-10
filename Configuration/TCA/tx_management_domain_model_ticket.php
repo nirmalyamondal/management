@@ -20,10 +20,10 @@ return [
         'iconfile' => 'EXT:management/Resources/Public/Icons/tx_management_domain_model_ticket.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, customer, product, technician, type, priority, status, place, name, passcode, address, note',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, customer, product, technician, type, priority, status, place, name, passcode, address, note, lock',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, customer, product, technician, type, priority, status, place, name, passcode, address, note, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, customer, product, technician, type, priority, status, place, name, passcode, address, note, lock, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -248,6 +248,21 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
+            ],
+        ],
+        'lock' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:management/Resources/Private/Language/locallang_db.xlf:tx_management_domain_model_ticket.lock',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
             ],
         ],
         'crdate' => [

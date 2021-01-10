@@ -1,8 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<label for="invoice">
-	<f:translate key="tx_management_domain_model_product.invoice" /> (.pdf only) 
+<label for="existing_invoice">	 
+	<f:translate key="tx_management_domain_model_product.invoice" />: <a href="{product.invoice.originalResource.publicUrl}" target="_blank">{product.invoice.originalResource.name}</a>
 </label><br />
-<f:form.upload property="invoice" additionalAttributes="{accept :'application/pdf', title:'Choose a pdf file.', required:'required'}" name="invoice" /><br />
+<!--label for="invoice">
+	Change <f:translate key="tx_management_domain_model_product.invoice" /> (.pdf only) 
+</label><br />
+<f:form.upload property="invoice" additionalAttributes="{accept :'application/pdf', title:'Choose a pdf please'}" name="invoice" /><br /-->
 <label for="customer">
 	<f:translate key="tx_management_domain_model_product.customer" />
 </label><br />
@@ -22,7 +25,7 @@
 <label for="pdate">
 	<f:translate key="tx_management_domain_model_product.pdate" />
 </label><br />
-	<f:form.textfield property="pdate" id="pdate" type="text" additionalAttributes="{required:'required'}" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" additionalAttributes="{autocomplete:'off'}" /><br /> 
+	<f:form.textfield property="pdate" id="pdate" type="text" value="{product.pdate->f:format.date(format: 'd-m-Y')}" placeholder="dd-mm-yyyy" additionalAttributes="{required:'required',autocomplete:'off'}" /><br /> 
 <label for="amcstart">
 	<f:translate key="tx_management_domain_model_product.amcstart" />
 </label><br />

@@ -1,0 +1,64 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <div class="new-data-create pr-4"><span class="h4 float-left w-50 mb-3">Listing</span><span class="h4 float-right w-50 text-right"><f:link.action action="new">Add New Ticket</f:link.action></span></div>    
+
+    <f:flashMessages />
+
+    <table class="tx_management tablesorter tablesorter-blue" id="tx_management_domain_model_ticket_table">
+        <thead>
+            <tr>
+                <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.uid" /></th>
+                <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.customer" /></th>
+                <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.priority" /></th>
+                <th class="sortStyle"><f:translate key="tx_management_domain_model_ticket.status" /></th>
+                <th colspan="3" class="sorter-false"> Actions </th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th><f:translate key="tx_management_domain_model_ticket.uid" /></th>
+                <th><f:translate key="tx_management_domain_model_ticket.customer" /></th>
+                <th><f:translate key="tx_management_domain_model_ticket.priority" /></th>
+                <th><f:translate key="tx_management_domain_model_ticket.status" /></th>
+                <th colspan="3">&nbsp;</th>
+            </tr>    
+        </tfoot> 
+        <tbody>   
+        <f:for each="{tickets}" as="ticket">
+            <tr>
+                <td>{ticket.uid}</td>
+                <td><f:format.stripTags allowedTags="<br>"><f:format.html>{ticket.customer}</f:format.html></f:format.stripTags></td>
+                <td>{ticket.priority}</td>
+                <td>{ticket.status}</td>
+                <td><f:link.action action="show" arguments="{ticket : ticket.uid}">Detail</f:link.action></td>
+                <td><f:link.action action="edit" arguments="{ticket : ticket.uid}">Update</f:link.action></td>
+            </tr>
+        </f:for>
+    </tbody>
+    </table>
+
+    <div class="new-data-create text-right pr-4 mb-3"><span class="h4"><f:link.action action="new">Add New Ticket</f:link.action></span></div>
+</f:section>
+</html>
+
+<f:comment>
+<f:section name="HeaderAssetsXXX">
+    <link rel="stylesheet" href="{f:uri.resource(path: 'Css/managementxy.css')}"/>
+</f:section>
+<f:section name="FooterAssetsXXX">
+    <link rel="stylesheet" href="{f:uri.resource(path: 'Css/managementxx.css')}"/>
+</f:section>
+</f:comment>

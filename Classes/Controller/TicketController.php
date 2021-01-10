@@ -2,6 +2,10 @@
 namespace AshokaTree\Management\Controller;
 
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Connection;
+
 /***
  *
  * This file is part of the "Management" Extension for TYPO3 CMS.
@@ -203,7 +207,16 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function listAction()
     {
-        $tickets = $this->ticketRepository->findAll();
+    	$userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+    	if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+           	//We've a Technician here
+           	$technicianStatusArray = [$this->settings['openStatusUid'], $this->settings['progressStatusUid']];	print_r($technicianStatusArray);
+    		$tickets = $this->ticketRepository->findByTechnicianAndStatus($GLOBALS["TSFE"]->fe_user->user["uid"], $technicianStatusArray);
+        } else {
+        	//We've a Manager here
+        	$tickets = $this->ticketRepository->findAll();
+        }
+        
         $customerAll          = $this->customerRepository->findAllByPid($this->settings['customerPid']);
         foreach($customerAll as $customerObj) {  $customerArray[$customerObj->getUid()] = $customerObj->getName().'<br/>'.$customerObj->getUsername(); }
         $statusAll          = $this->statusRepository->findAll();
@@ -319,7 +332,7 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function createAction(\AshokaTree\Management\Domain\Model\Ticket $newTicket)
     {
-        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $this->addFlashMessage('Ticket has been created.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->ticketRepository->add($newTicket);
         $this->redirect('list');
     }
@@ -360,7 +373,8 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function updateAction(\AshokaTree\Management\Domain\Model\Ticket $ticket)
     {
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $ticketUid = $ticket->getUid();
+        $this->addFlashMessage('Ticket has been updated with Id: '.$ticketUid, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->ticketRepository->update($ticket);
         $this->redirect('list');
     }
@@ -373,11 +387,49 @@ class TicketController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function deleteAction(\AshokaTree\Management\Domain\Model\Ticket $ticket)
     {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+    	$userGroupsArray = @explode(",",$GLOBALS["TSFE"]->fe_user->user["usergroup"]); 
+        if(in_array($this->settings['technicianGroupId'], $userGroupsArray)) {
+            $this->addFlashMessage('Sorry! you are not authorize[Code:Ticket-delete]!', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+            $this->redirect('new');
+        }
+        $ticketUid = $ticket->getUid();
+        $this->addFlashMessage('Ticket has been deleted with Id: '.$ticketUid, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->ticketRepository->remove($ticket);
         $this->redirect('list');
     }
 
+    /**
+     * action createMessage
+     * 
+     * @param void
+     * @return void
+     */
+    public function createMessageAction()
+    {
+        $gpArguments    = $this->request->getArguments();
+        $messagenew     = $gpArguments['newMessage']['messagenew'];
+        $ticketid       = $gpArguments['newMessage']['ticketid'];
+        if(!$messagenew || !$ticketid) {
+            $this->redirect('list');
+        }
+        $dbTable = 'tx_management_domain_model_message';
+        $messageDataArray = [
+                'pid' => $this->settings['ticketPid'],
+                'tstamp' => time(),
+                'crdate' => time(),
+                'ticket' => $ticketid,
+                'user' => $GLOBALS['TSFE']->fe_user->user['uid'],
+                'message' => $messagenew,
+                'date' => time()
+            ];  
+        $dbConnMsg = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($dbTable);
+        $dbConnMsg->insert($dbTable,$messageDataArray);
+        $msgLastUid = (int) $dbConnMsg->lastInsertId($dbTable);
+        //print_r($this->settings); print_r($messageDataArray); //echo $msgLastUid;die();
+        $this->addFlashMessage('New message has been added with Id: '.$msgLastUid, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $arguments = ['ticket' => $ticketid];
+        $this->redirect('show', 'Ticket', 'Management', $arguments, $GLOBALS['TSFE']->id, $delay = 0, $statusCode = 303);
+    }
 
     public function auxStatusTypePriorityObjectProcess($objectAll) {
         $newObjects = [];

@@ -331,7 +331,6 @@ class Ticket extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $crdate = null;
 
-
     /**
      * Returns the creation date
      *
@@ -341,5 +340,4 @@ class Ticket extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->crdate;
     }
-
 }

@@ -27,6 +27,8 @@ plugin.tx_management_customer {
         defaultpwd = nirmalya143
         customerPid = {$plugin.tx_management_customer.settings.customerPid}
         technicianPid = {$plugin.tx_management_customer.settings.technicianPid}
+        technicianGroupId = 2
+        ticketPageid = 35
     }
 }
 
@@ -56,6 +58,8 @@ plugin.tx_management_product {
     settings {
         customerPid = {$plugin.tx_management_product.settings.customerPid}
         technicianPid = {$plugin.tx_management_product.settings.technicianPid}
+        technicianGroupId = 2
+        ticketPageid = 35
     }
 }
 
@@ -85,7 +89,17 @@ plugin.tx_management_ticket {
     settings {
         customerPid = {$plugin.tx_management_ticket.settings.customerPid}
         technicianPid = {$plugin.tx_management_ticket.settings.technicianPid}
+        ticketPid = {$plugin.tx_management_ticket.persistence.storagePid}
+        technicianGroupId = 2
+        openStatusUid = 1
+        progressStatusUid = 2
+        reviewStatusUid = 3
     }
 }
 
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:management/Configuration/TypoScript/TsLib/settings.persistence.txt">
+
+#Set Technician Group Uid
+[usergroup("2")]
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:management/Configuration/TypoScript/TsLib/settings.technician.txt">
+[global]
